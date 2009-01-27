@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use base qw/Exporter DynaLoader/;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our @EXPORT  = qw/induce void/;
 
 use Scalar::Induce::ConfigData;
@@ -21,7 +21,7 @@ else {
 		for ( $v ) { push @r, $c->() while defined }
 		@r;
 	}
-    sub void {}
+    sub void { return; }
 END
 }
 
@@ -35,7 +35,7 @@ Scalar::Induce - Unfolding scalars
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =head1 SYNOPSIS
 
@@ -57,7 +57,7 @@ This is a utility function that always returns an empty list (or undefined in sc
 
 =head1 AUTHORS
 
-Leon Timmermans, C<< <leont at cpan.org> >>, Aristotle Pagaltzis C<< pagaltzis at gmx.de >>
+Leon Timmermans, C<< <leont at cpan.org> >>, Aristotle Pagaltzis C<< <pagaltzis at gmx.de> >>
 
 =head1 BUGS
 
@@ -96,6 +96,7 @@ L<http://search.cpan.org/dist/Scalar-Induce>
 
 
 =head1 ACKNOWLEDGEMENTS
+
 Aristotle Pagaltzis came up with this idea (L<http://use.perl.org/~Aristotle/journal/37831>). Leon Timmermans merely re-implemented it in XS and uploaded it to CPAN.
 
 =head1 COPYRIGHT & LICENSE
