@@ -9,7 +9,7 @@ PROTOTYPES: DISABLED
 
 void
 induce(block, var)
-	SV* block;
+	CV* block;
 	SV* var;
 	PROTOTYPE: &$
 	PPCODE:
@@ -17,7 +17,7 @@ induce(block, var)
 		DEFSV = sv_mortalcopy(var);
 		while (SvOK(DEFSV)) {
 			PUSHMARK(SP);
-			call_sv(block, G_ARRAY);
+			call_sv((SV*)block, G_ARRAY | G_NOARGS);
 			SPAGAIN;
 		}
 

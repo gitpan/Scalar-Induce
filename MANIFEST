@@ -1,15 +1,17 @@
 Build.PL
 Changes
-lib/Scalar/Induce.pm
-lib/Scalar/Induce.xs
+INSTALL
 LICENSE
-Makefile.PL
 MANIFEST
+META.json
 META.yml
 README
-t/00-load.t
-t/10-pure_perl.t
-t/10-xs.t
-t/pod-coverage.t
-t/pod.t
-SIGNATURE    Added here by Module::Build
+SIGNATURE
+dist.ini
+lib/Scalar/Induce.pm
+lib/Scalar/Induce.xs
+t/00-compile.t
+t/10-basics.t
+t/release-kwalitee.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t
