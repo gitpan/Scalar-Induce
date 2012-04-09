@@ -1,42 +1,47 @@
-
+use 5.006;
 use strict;
 use warnings;
+use ExtUtils::CBuilder;
+use Module::Build 0.25;
 
-use Module::Build 0.3601;
+my $C_support = ExtUtils::CBuilder->new->have_compiler;
 
+printf "Supports compiling C files: %s\n", $C_support ? "yes" : "no";
 
-my %module_build_args = (
-  "build_requires" => {
-    "File::Find" => 0,
-    "File::Temp" => 0,
-    "Module::Build" => "0.3601",
-    "Test::Differences" => 0,
-    "Test::More" => 0
+my $builder = Module::Build->new(
+	module_name         => 'Scalar::Induce',
+	license             => 'perl',
+	dist_author         => 'Leon Timmermans <leont@cpan.org>',
+	dist_version_from   => 'lib/Scalar/Induce.pm',
+	  'build_requires' => {
+    'B' => '0',
+    'File::Find' => '0',
+    'File::Temp' => '0',
+    'Module::Build' => '0.25',
+    'Test::Differences' => '0',
+    'Test::More' => '0'
   },
-  "configure_requires" => {
-    "Module::Build" => "0.3601"
+  'configure_requires' => {
+    'ExtUtils::CBuilder' => '0',
+    'Module::Build' => '0.25'
   },
-  "dist_abstract" => "Unfolding scalars",
-  "dist_author" => [
-    "Leon Timmermans <leont\@cpan.org>"
-  ],
-  "dist_name" => "Scalar-Induce",
-  "dist_version" => "0.03",
-  "license" => "perl",
-  "module_name" => "Scalar::Induce",
-  "recommends" => {},
-  "recursive_test_files" => 1,
-  "requires" => {
-    "Exporter" => "5.57",
-    "XSLoader" => 0,
-    "perl" => "5.006",
-    "strict" => 0,
-    "warnings" => 0
+  'requires' => {
+    'Carp' => '0',
+    'Exporter' => '5.57',
+    'XSLoader' => '0',
+    'perl' => '5.006',
+    'strict' => '0',
+    'warnings' => '0'
   },
-  "script_files" => []
+	meta_merge => {
+		resources       => {
+			bugtracker  => 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Scalar-Induce',
+		},
+		keywords        => [ qw/induce reduce/ ],
+	},
+	add_to_cleanup      => [ 'Scalar-Induce-*' ],
 );
 
+$builder->xs_files({}) if not $C_support;
 
-my $build = Module::Build->new(%module_build_args);
-
-$build->create_build_script;
+$builder->create_build_script();

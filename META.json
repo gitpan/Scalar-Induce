@@ -3,8 +3,8 @@
    "author" : [
       "Leon Timmermans <leont@cpan.org>"
    ],
-   "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112150",
+   "dynamic_config" : "1",
+   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.120920",
    "license" : [
       "perl_5"
    ],
@@ -16,29 +16,32 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.25"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "ExtUtils::CBuilder" : "0",
+            "Module::Build" : "0.25"
          }
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Exporter" : "5.57",
-            "XSLoader" : 0,
+            "XSLoader" : "0",
             "perl" : "5.006",
-            "strict" : 0,
-            "warnings" : 0
+            "strict" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "Test::Differences" : 0,
-            "Test::More" : 0
+            "B" : "0",
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::Differences" : "0",
+            "Test::More" : "0"
          }
       }
    },
@@ -47,8 +50,13 @@
       "bugtracker" : {
          "mailto" : "bug-scalar-induce at rt.cpan.org",
          "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Scalar-Induce"
+      },
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/Leont/scalar-induce.git",
+         "web" : "http://github.com/Leont/scalar-induce"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
 

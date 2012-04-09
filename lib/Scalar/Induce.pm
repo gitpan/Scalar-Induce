@@ -1,6 +1,6 @@
 package Scalar::Induce;
 {
-  $Scalar::Induce::VERSION = '0.03';
+  $Scalar::Induce::VERSION = '0.04';
 }
 
 use 5.006;
@@ -11,8 +11,19 @@ use warnings;
 use Exporter 5.57 'import';
 use XSLoader;
 our @EXPORT  = qw/induce void/;
-
-XSLoader::load('Scalar::Induce', __PACKAGE__->VERSION);
+if (!(not our $pure_perl and eval { XSLoader::load('Scalar::Induce', __PACKAGE__->VERSION); 1 })) {
+	require Carp;
+	eval <<'END' or Carp::croak("Could not load pure-perl induce: $@");    ##no critic (ProhibitStringyEval)
+	sub induce (&$) {
+		my ( $c, $v ) = @_;
+		my @r;
+		for ( $v ) { push @r, $c->() while defined }
+		@r;
+	}
+	sub void { return; }
+	1;
+END
+}
 
 1;
 
@@ -28,7 +39,7 @@ Scalar::Induce - Unfolding scalars
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 

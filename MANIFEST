@@ -6,12 +6,12 @@ MANIFEST
 META.json
 META.yml
 README
-SIGNATURE
 dist.ini
 lib/Scalar/Induce.pm
 lib/Scalar/Induce.xs
 t/00-compile.t
-t/10-basics.t
+t/10-pure_perl.t
+t/10-xs.t
 t/release-kwalitee.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
