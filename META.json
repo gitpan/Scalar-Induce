@@ -4,7 +4,7 @@
       "Leon Timmermans <leont@cpan.org>"
    ],
    "dynamic_config" : "1",
-   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.120920",
+   "generated_by" : "Dist::Zilla version 4.300033, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -16,13 +16,19 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.25"
+            "Module::Build" : "0.4005"
          }
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::CBuilder" : "0",
-            "Module::Build" : "0.25"
+            "Module::Build" : "0.4005"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
          }
       },
       "runtime" : {
@@ -57,6 +63,6 @@
          "web" : "http://github.com/Leont/scalar-induce"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
 

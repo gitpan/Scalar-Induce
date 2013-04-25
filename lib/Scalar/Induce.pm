@@ -1,6 +1,6 @@
 package Scalar::Induce;
 {
-  $Scalar::Induce::VERSION = '0.04';
+  $Scalar::Induce::VERSION = '0.05';
 }
 
 use 5.006;
@@ -39,7 +39,7 @@ Scalar::Induce - Unfolding scalars
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 

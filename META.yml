@@ -6,14 +6,13 @@ build_requires:
   B: 0
   File::Find: 0
   File::Temp: 0
-  Module::Build: 0.25
+  Module::Build: 0.4005
   Test::Differences: 0
   Test::More: 0
 configure_requires:
-  ExtUtils::CBuilder: 0
-  Module::Build: 0.25
+  Module::Build: 0.4005
 dynamic_config: 1
-generated_by: 'Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.120920'
+generated_by: 'Dist::Zilla version 4.300033, CPAN::Meta::Converter version 2.130880'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -29,4 +28,4 @@ requires:
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Scalar-Induce
   repository: git://github.com/Leont/scalar-induce.git
-version: 0.04
+version: 0.05

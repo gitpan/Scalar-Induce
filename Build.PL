@@ -1,12 +1,7 @@
 use 5.006;
 use strict;
 use warnings;
-use ExtUtils::CBuilder;
 use Module::Build 0.25;
-
-my $C_support = ExtUtils::CBuilder->new->have_compiler;
-
-printf "Supports compiling C files: %s\n", $C_support ? "yes" : "no";
 
 my $builder = Module::Build->new(
 	module_name         => 'Scalar::Induce',
@@ -17,13 +12,12 @@ my $builder = Module::Build->new(
     'B' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
-    'Module::Build' => '0.25',
+    'Module::Build' => '0.4005',
     'Test::Differences' => '0',
     'Test::More' => '0'
   },
   'configure_requires' => {
-    'ExtUtils::CBuilder' => '0',
-    'Module::Build' => '0.25'
+    'Module::Build' => '0.4005'
   },
   'requires' => {
     'Carp' => '0',
@@ -40,8 +34,7 @@ my $builder = Module::Build->new(
 		keywords        => [ qw/induce reduce/ ],
 	},
 	add_to_cleanup      => [ 'Scalar-Induce-*' ],
+	allow_pureperl      => 1,
 );
-
-$builder->xs_files({}) if not $C_support;
 
 $builder->create_build_script();
